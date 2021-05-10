@@ -33,7 +33,7 @@ public class AdministratorRepository {
 	};
 
 	/** 管理者情報を挿入する */
-	public Administrator insert(Administrator administrator) {
+	public void insert(Administrator administrator) {
 		SqlParameterSource param = new BeanPropertySqlParameterSource(administrator);
 		if (administrator.getId() == null) {
 			String insertSql = "INSERT INTO administrators(name,mail_address,password)"
@@ -43,7 +43,6 @@ public class AdministratorRepository {
 			String updateSql = "UPDATE administrators SET name=:name,mail_address=:mailAddress,password=:password";
 			template.update(updateSql, param);
 		}
-		return null;
 	}
 
 	/**
