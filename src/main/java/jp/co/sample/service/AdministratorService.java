@@ -29,7 +29,6 @@ public class AdministratorService {
 	 * ログイン処理をする
 	 */
 	public Administrator login(String mailAddress,String password) {
-		return  administratorRepository.findByMailAddressAndPassWord(mailAddress,password);
-		//return this.login(mailAddress, password);
+		return administratorRepository.findByMailAddressAndPassWord(mailAddress,password);
 	}
 }
