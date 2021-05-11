@@ -28,4 +28,10 @@ public class EmployeeService {
 	public List<Employee> showList(){
 		return employeeRepository.findAll();
 	}
+	/**
+	 * 授業員情報詳細を全件検索する業務処理を行うメソッド
+	 */
+	public Employee showDetail(Integer id) {
+		return employeeRepository.load(id);
+	}
 }
