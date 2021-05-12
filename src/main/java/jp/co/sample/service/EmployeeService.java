@@ -34,4 +34,10 @@ public class EmployeeService {
 	public Employee showDetail(Integer id) {
 		return employeeRepository.load(id);
 	}
+	/**
+	 * 従業員情報を更新するメソッド
+	 */
+	public void update(Employee employee) {
+		employeeRepository.update(employee);
+	}
 }

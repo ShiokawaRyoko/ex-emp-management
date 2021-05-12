@@ -31,11 +31,27 @@ public class EmployeeController {
 		model.addAttribute("employeeList",employeeList);
 		return "employee/list";
 	}
-	
+/**
+ * 従業員情報更新時に使用するフォーム
+ */
 	@ModelAttribute
 	public UpdateEmployeeForm setUpUpdateEmployeeForm() {
 		return new UpdateEmployeeForm();
 	}
 	
+/**
+ * 従業員情報を検索する処理を記述する
+ */
+	@RequestMapping("/showDetail")
+	public String showDetail(String id, Model model) {
+		Employee employee = employeeService.showDetail(Integer.parseInt(id));
+		model.addAttribute("employee",employee);
+		return "employee/detail";
+	}
+	
+	@RequestMapping("/update")
+	public String update(UpdateEmployeeForm form) {
+		return null;
+	}
 	
 }
