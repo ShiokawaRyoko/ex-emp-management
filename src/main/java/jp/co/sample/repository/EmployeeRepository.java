@@ -26,7 +26,7 @@ public class EmployeeRepository {
 
 	private static final RowMapper<Employee> EMPLOYEE_ROW_MAPPER = (rs, i) -> {
 		Employee employee = new Employee();
-		employee.setID(rs.getInt("id"));
+		employee.setId(rs.getInt("id"));
 		employee.setName(rs.getString("name"));
 		employee.setImage(rs.getString("image"));
 		employee.setGender(rs.getString("gender"));
@@ -64,7 +64,7 @@ public class EmployeeRepository {
  */
 	public void update(Employee employee) {
 		SqlParameterSource param = new BeanPropertySqlParameterSource(employee);
-		if (employee.getID() == null) {
+		if (employee.getId() == null) {
 			String insertSql = "INSERT INTO employees(name,age,gender,hire_date,mail_address,zip_code,address,telephone,salary,characteristics,dependents_count)"
 					+ "VALUES(:name,:age,:gender,:hireDate,:mailAddress,:zipCode,address,telephone,salary,characteristics,dependentsCount)";
 			template.update(insertSql, param);
